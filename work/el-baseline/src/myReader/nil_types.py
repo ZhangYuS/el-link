@@ -1,0 +1,3 @@
+TYPE2ID = {"NIL_Event": 0, "NIL_Person": 1, "NIL_Work": 2, "NIL_Location": 3, "NIL_Time&Calendar": 4, "NIL_Brand": 5, "NIL_Natural&Geography": 6, "NIL_Game": 7, "NIL_Biological": 8, "NIL_Medicine": 9, "NIL_Food": 10, "NIL_Software": 11, "NIL_Vehicle": 12, "NIL_Website": 13, "NIL_Disease&Symptom": 14, "NIL_Organization": 15, "NIL_Awards": 16, "NIL_Education": 17, "NIL_Culture": 18, "NIL_Constellation": 19, "NIL_Law&Regulation": 20, "NIL_VirtualThings": 21, "NIL_Diagnosis&Treatment": 22, "NIL_Other": 23}
+
+ID2TYPE = list(TYPE2ID.keys())
