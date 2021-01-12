@@ -6,6 +6,24 @@ import paddle.fluid.dygraph as D
 from ernie.modeling_ernie import ErnieModel
 from myReader.nil_types import *
 
+class ModelWithTwoBert(D.Layer):
+
+    def __init__(self, args, version_cfg):
+        super(ModelWithTwoBert, self).__init__()
+        self.args = args
+        self.version_cfg = version_cfg
+        self.sentence_ernie = ErnieModel.from_pretrained(args.model_name_or_path, num_out_pooler=1)
+        self.kb_ernie = ErnieModel.from_pretrained(args.model_name_or_path, num_out_pooler=1)
+
+        self.sim_ffn = D.Linear(768 * 2, 1)
+        self.nil_ffn = D.Linear(768, len(TYPE2ID))
+
+    def forward(self, sentence_inputs: dict, kb_inputs: dict):
+        sentence_pooled, _, = self.sentence_ernie(**sentence_inputs)
+        kb_pooled, _, = self.kb_ernie(**kb_inputs)
+        L.concat()
+
+
 
 class ModelWithErnie(D.Layer):
     # 减小计算量
